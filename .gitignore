@@ -1,0 +1,24 @@
+```gitignore
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+env/
+ENV/
+venv/
+
+# Env file
+.env
+
+# SQLite database
+*.db
+
+# IDE folders
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,4 +1,4 @@
-from aiogram import Router, types, F
+from aiogram import Router, types
 from aiogram.filters import Command, CommandObject
 
 from bot.database.notes_db import delete_all_notes
@@ -17,8 +17,8 @@ async def help_command(message: types.Message):
         "/start — Show welcome message\n"
         "/help — Show this help message\n"
         "/view — View all your saved notes\n"
-        "/clear — delete all notes"
-        "/delete <tag>— Possibility to change tag\n"
+        "/clear — delete all notes\n"
+        "/delete — Possibility to change tag\n"
         "/export — Export your notes as a file\n\n"
         "📝 Just send any message starting with a tag (e.g., #idea New project) to save it."
     )

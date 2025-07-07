@@ -3,7 +3,15 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
 
-
+file_type = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="📄 Excel", callback_data="export_xlsx")],
+        [InlineKeyboardButton(text="📊 CSV", callback_data="export_csv")],
+        [InlineKeyboardButton(text="🧩 JSON", callback_data="export_json")],
+        [InlineKeyboardButton(text="📰 PDF", callback_data="export_pdf")],
+        [InlineKeyboardButton(text="📜 TXT", callback_data="export_txt")]
+    ]
+)
 def delete_buttons(contents, tag: str):
     builder = InlineKeyboardBuilder()
     for id, content in contents:

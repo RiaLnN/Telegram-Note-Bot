@@ -1,5 +1,6 @@
 import sqlite3
 from bot.config import load_config
+from collections import defaultdict
 
 config = load_config()
 
@@ -45,7 +46,17 @@ async def get_all_notes_grouped_by_tag(user_id: int):
             grouped[tag] = []
         grouped[tag].append(content)
     return grouped
+def get_grouped_notes(user_id: int):
+    conn = sqlite3.connect(config.db_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT tag, content FROM notes WHERE user_id = ?", (user_id,))
+    rows = cursor.fetchall()
+    conn.close()
 
+    grouped = defaultdict(list)
+    for tag, content in rows:
+        grouped[tag].append(content)
+    return grouped
 async def delete_all_notes(user_id: int):
     conn = sqlite3.connect(config.db_path)
     cursor = conn.cursor()
